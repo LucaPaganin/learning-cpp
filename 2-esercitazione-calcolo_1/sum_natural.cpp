@@ -13,6 +13,11 @@ int main(){
         cout << "Passo " << i << " la somma fino a qui e': " << sum << endl;
         // sum += i;  equivalente a quello sopra
     }
+
+    // versione in linea
+    // for (int i = 1; i <= n; i++) sum += i;
+    
+        
     cout << "Somma fino a n = " << n << " e' uguale a " << sum << endl;
 
     return 0;
