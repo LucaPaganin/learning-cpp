@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <cmath>
+
 using namespace std;
 
 double CalcolaDistanza(double x1, double y1, double x2, double y2) {
@@ -44,9 +45,9 @@ int main() {
    for(int i=1; i<numEntries; i++){
       double distanza = CalcolaDistanza(x_array[i], y_array[i], x_array[0], y_array[0]);
       if(distanza > distanzaMassima) {
-	 xD = x_array[i];
-	 yD = y_array[i];
-	 distanzaMassima = distanza;
+         xD = x_array[i];
+         yD = y_array[i];
+         distanzaMassima = distanza;
       }
    }
 
