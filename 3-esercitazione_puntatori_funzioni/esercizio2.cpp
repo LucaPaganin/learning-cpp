@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 
 double PassByValue(int val) {
@@ -28,7 +29,7 @@ int main() {
    int var1 = 9;
    cout << "Before PassByValue() var1 = " << var1
 	<< ", &var1 = " << &var1 << endl;
-   //double ret1 = PassByValue(var1);
+   double ret1 = PassByValue(var1);
    cout << "After PassByValue() var1 = " << var1
 	<< ", &var1 = " << &var1 << ", ret1 = " << ret1 << endl;
    
@@ -38,7 +39,7 @@ int main() {
    int var2 = 9;
    cout << "Before PassByReference() var2 = " << var2
 	<< ", &var2 = " << &var2 << endl;
-   //   double ret2 = PassByReference(var2);
+   double ret2 = PassByReference(var2);
    cout << "After PassByReference() var2 = " << var2
 	<< ", &var2 = " << &var2 << ", ret2 = " << ret2 << endl;
 
@@ -48,7 +49,7 @@ int main() {
    int var3 = 9;
    cout << "Before PassByPointer() var3 = " << var3
 	<< ", &var3 = " << &var3 << endl;
-   //double ret3 = PassByPointer(&var3);
+   double ret3 = PassByPointer(&var3);
    cout << "After PassByPointer() var3 = " << var3
 	<< ", &var3 = " << &var3 << ", ret3 = " << ret3 << endl;
    
