@@ -14,6 +14,7 @@
     * che legge il file
     */
    
+   // cambia fileName col il nome del tuo file di dati, deve avere il formato scritto sopra
    string fileName = "datifit.dat";
 
    /* controllo che il file esista e sia leggibile */
@@ -23,6 +24,7 @@
       return;
    }
 
+   // questo non serve cambiarlo
    /* lettura dei dati dal file */
    TGraphErrors gr;
    int i = 0;
@@ -52,9 +54,11 @@
     *
     * "[0]*x^[1]"             --> legge di potenza (2 parametri) 
     */
-   TF1 f("f","[0]+x*[1]");
-   f.SetParameter(0,0);
-   f.SetParameter(1,4);
+   TF1 f("f", "[0] + x*[1]");
+   // settare valori iniziali dei parametri ai valori opportuni per il caso di utilizzo
+   f.SetParameter(0, 0);
+   f.SetParameter(1, 4);
+   // aggiungere valori iniziali degli altri parametri se presenti
 
    /* plot dei dati */
    gr.Draw("AP");

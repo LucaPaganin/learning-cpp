@@ -65,7 +65,7 @@ double ErroreStandard(vector<double>& v)
 int main(int argc, char** argv)
 {
 
-  if (argc<=1){
+  if (argc <= 1){
     cout << "Specificare il nome del file dopo l'eseguibile. Esempio:" << endl;
     cout << " ./media dati.dat" << endl;
     cout << "Il formato del file deve essere del tipo: " << endl;
@@ -80,12 +80,12 @@ int main(int argc, char** argv)
   if (!ifile.good())
   {
      cout << "Impossibile aprire il file: " << argv[1] << endl;
-    return 2;
+     return 2;
   }
 
   vector<double> valori;
   double val;
-  while (ifile>>val)
+  while (ifile >> val)
      valori.push_back(val);
 
   cout << valori.size() << " valori letti dal file " << argv[1] << endl;

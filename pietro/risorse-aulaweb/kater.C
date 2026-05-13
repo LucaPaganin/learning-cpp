@@ -1,6 +1,6 @@
 {
 
-
+  // usare nome del file di input o rinominare il proprio "dati_kater.dat"
   ifstream f("dati_kater.dat");
 
 
@@ -29,17 +29,20 @@
    * provare ad inizializzare i parametri delle funzioni fino quando non
    * si riesce a far convergere il fit.
    */
-  TF1 f1("f1","[0]+[1]*x+[2]*x*x");
+  // IMPORTANTE: cambiare i valori iniziali se necessario (ad esempio se non converge il fit)
+  // Funzione T1(x)
+  TF1 f1("f1", "[0] + [1]*x + [2]*x*x");
   f1.SetLineColor(kRed);
-  f1.SetParameter(0,1.7);
-  f1.SetParameter(1,0.001);
-  f1.SetParameter(2,0.0);
-
-  TF1 f2("f2","[0]+[1]*x+[2]*x*x");
+  f1.SetParameter(0, 1.7);
+  f1.SetParameter(1, 0.001);
+  f1.SetParameter(2, 0.0);
+  
+  // Funzione T2(x)
+  TF1 f2("f2", "[0] + [1]*x + [2]*x*x");
   f2.SetLineColor(kBlue);
-  f2.SetParameter(0,1.7);
-  f2.SetParameter(1,0.001);
-  f2.SetParameter(2,0.0);
+  f2.SetParameter(0, 1.7);
+  f2.SetParameter(1, 0.001);
+  f2.SetParameter(2, 0.0);
 
   gr1.Draw("AP");
   gr1.GetXaxis()->SetTitle("Asse x [x]");
@@ -72,9 +75,9 @@
   
 
   // tra le due soluzioni, scelgo quella compresa tra xMin e xMax
-  double xMin=gr1.GetXaxis()->GetXmin();
-  double xMax=gr1.GetXaxis()->GetXmax();
-  double x=0;
+  double xMin = gr1.GetXaxis()->GetXmin();
+  double xMax = gr1.GetXaxis()->GetXmax();
+  double x = 0;
   if (x1 > xMin && x1 < xMax)
      x = x1;
   else
@@ -82,7 +85,7 @@
   
   // calcolo il periodo di isocronia da una delle due parabole e stampo il
   // risultato su schermo
-  double Tiso = a1*x*x+b1*x+c1;
+  double Tiso = a1*x*x + b1*x + c1;
   cout << endl;
   cout << " ------------------------------- " << endl;
   cout << "  fit1 ";

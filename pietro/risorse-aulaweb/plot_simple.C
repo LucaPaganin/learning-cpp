@@ -6,7 +6,7 @@
    // Esempio di esecuzione (da terminale): root plot_simple.C
    //----------------------------------------------
    //
-   // Il file del file di input deve essere del tipo (4 colonne)
+   // Il file di input deve essere del tipo (4 colonne)
    
    //   x_1 y_1 ex_1 ey_1
    //   x_2 y_2 ex_2 ey_2
@@ -26,21 +26,22 @@
    //
    // - Nome del file di input
    //
-   const char* fileName = "datifit.dat";
+   const char* fileName = "datifit.dat";    // modificare inserendo nome del proprio file
    //
    //
    // - Parametri della retta da disegnare: y = m*x + q
-   //
+   //   Cambiare valori mettendo quelli che servono al caso d'uso corrente
    double m = 4.04;
    double q = 0;
    //
    //
    // - Numero di colonne nel file (scegliere una delle due opzioni):
    //
-   //const char* fmt = "%lf %lf %lf"; //scommentare per file con 3 colonne
-   const char* fmt = "%lf %lf %lf %lf"; //scommentare per file con 4 colonne
+   // const char* fmt = "%lf %lf %lf";     //scommentare per file con 3 colonne
+   const char* fmt = "%lf %lf %lf %lf";    //scommentare per file con 4 colonne
 
-
+   // NB: qua viene usato "const char*" invece di "string" perche' il costruttore di TGraphErrors che prende
+   // anche la stringa di formato vuole const char*. Vedi https://root.cern.ch/doc/v636/classTGraphErrors.html
 
 
    // creazione del grafico e lettura del file
@@ -60,7 +61,7 @@
    xMax += clearance;
    
    // Creazione della funzione e inizializzazione dei parametri
-   TF1 f("f","[0]+x*[1]", xMin, xMax);
+   TF1 f("f","[0] + x*[1]", xMin, xMax);
    f.SetParameter(0, q);
    f.SetParameter(1, m);
 
